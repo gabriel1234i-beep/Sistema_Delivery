@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Enums
+namespace Domain.Enums;
+public enum EstadoPedido
 {
-    internal class EstadoPedido
-    {
-    }
+    Pendiente, Confirmado, Entregado, Cancelado
 }

@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Enums
-{
-    internal class EstadoEntrega
-    {
-    }
-}
+namespace Domain.Enums;
+
+public enum EstadoEntrega{ Creado, EnCamino, Entregado }
+

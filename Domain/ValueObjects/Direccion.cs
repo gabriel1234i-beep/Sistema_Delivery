@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Domain.ValueObjects
 {
-    internal class Direccion
-    {
-    }
+    public record Direccion
+    (
+        string Calle,
+        string Ciudad,
+        string Referencia,
+        double Latitud,
+        double Longitud
+     );
 }
