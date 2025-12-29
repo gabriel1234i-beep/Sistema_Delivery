@@ -30,6 +30,6 @@ public class Pedido : BaseEntity
     public void AgregarItem(string producto, int cantidad, decimal precio)
     {
         Items.Add(new ItemPedido(producto, cantidad, precio));
-        PagoTotal = Items.Sum(x => x.Subtotal);
+        PagoTotal = Items.Sum(x => x.SubTotal);
     }
 }

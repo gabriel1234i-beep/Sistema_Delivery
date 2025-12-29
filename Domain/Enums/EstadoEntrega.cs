@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Domain.Enums;
 
-public enum EstadoEntrega{ Creado, EnCamino, Entregado }
+public enum EstadoEntrega{ Creado, EnCamino, Asignado, Entregado }
 
