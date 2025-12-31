@@ -1,8 +1,7 @@
-﻿using Aplication.DTOs;
+﻿using Aplication.DTOs.Compra;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
-using Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,17 +14,24 @@ namespace Aplication.UseCases.Compras
     {
         private readonly IPedido _pedido;
         private readonly IMapper _mapper;
+        private readonly IExternoService _externoService;
 
-        public CrearPedido(IPedido pedido, IMapper mapper)
+        public CrearPedido(IPedido pedido, IMapper mapper, IExternoService externoService)
         {
             _pedido = pedido;
             _mapper = mapper;
+            _externoService = externoService;
         }
 
-        public async Task<Guid> Ejecutar(PedidoDTOs dto)
+        public async Task<Guid> Ejecutar(PedidoDTOs pedidoDto)
         {
-            var pedido = _mapper.Map<Pedido>(dto);
-            
+            var comercio = await _externoService.ObternerComercioPorId(pedidoDto.IdComercio);
+            if (comercio == null)
+            {
+                throw new Exception("Comercio no encontrado");
+            }
+            var pedido = _mapper.Map<Pedido>(pedidoDto);
+
             await _pedido.Guardar(pedido);
 
             return pedido.Id;

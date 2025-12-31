@@ -5,18 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities;
-public class ItemPedido : BaseEntity
+namespace Domain.Entities
 {
-    public string Producto { get; private set; }
-    public int Cantidad { get; private set; }
-    public decimal Precio { get; private set; }
-    public decimal SubTotal => Cantidad * Precio;
-
-    public ItemPedido(string producto, int cantidad, decimal precio)
+    public class ItemPedido : BaseEntity
     {
-        Producto = producto;
-        Cantidad = cantidad;
-        Precio = precio;
+        public string Producto { get; private set; }
+        public int Cantidad { get; private set; }
+        public decimal Precio { get; private set; }
+        public decimal SubTotal => Cantidad * Precio;
+
+        //private ItemPedido() { }
+
+        public ItemPedido(string producto, int cantidad, decimal precio)
+        {
+            Producto = producto;
+            Cantidad = cantidad;
+            Precio = precio;
+        }
     }
 }

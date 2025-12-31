@@ -5,9 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces;
-public interface IEntrega
+namespace Domain.Interfaces
 {
-    Task<Entrega> ObtenerPorId(Guid id);
-    Task Guardar(Entrega entrega);
+    public interface IEntrega
+    {
+        Task<IEnumerable<Entrega>>All();
+        Task<Entrega> ObtenerPorId(Guid id);
+        Task Crear(Entrega entrega);
+        Task Actualizar(Entrega entrega);
+        Task Guardar(Entrega entrega);
+    }
 }

@@ -31,8 +31,8 @@
               "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Domain\\Domain.csproj": {
                 "projectPath": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Domain\\Domain.csproj"
               },
-              "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\WebApi\\WebApi.csproj": {
-                "projectPath": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\WebApi\\WebApi.csproj"
+              "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Infraestructure\\Infraestructure.csproj": {
+                "projectPath": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Infraestructure\\Infraestructure.csproj"
               }
             }
           }
@@ -49,7 +49,7 @@
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[12.0.1, )"
+              "version": "[8.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -130,7 +130,7 @@
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[12.0.1, )"
+              "version": "[8.0.1, )"
             }
           },
           "imports": [
@@ -153,14 +153,14 @@
         }
       }
     },
-    "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\WebApi\\WebApi.csproj": {
+    "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Infraestructure\\Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\WebApi\\WebApi.csproj",
-        "projectName": "WebApi",
-        "projectPath": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Infraestructure\\Infraestructure.csproj",
+        "projectName": "Infraestructure",
+        "projectPath": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Infraestructure\\Infraestructure.csproj",
         "packagesPath": "C:\\Users\\Gabriel Canaviri Z\\.nuget\\packages\\",
-        "outputPath": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\WebApi\\obj\\",
+        "outputPath": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gabriel Canaviri Z\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -176,7 +176,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Domain\\Domain.csproj": {
+                "projectPath": "E:\\UPDS\\MDG\\MDG_3\\Delivery\\SistemaDelivery\\Domain\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -191,7 +195,7 @@
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[12.0.1, )"
+              "version": "[8.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -212,10 +216,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
             }
           },
           "imports": [
@@ -230,9 +230,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -1,4 +1,6 @@
 ﻿using Aplication.DTOs;
+using Aplication.DTOs.Compra;
+using Aplication.DTOs.Envio;
 using AutoMapper;
 using Domain.Entities;
 using Domain.ValueObjects;
@@ -14,14 +16,13 @@ namespace Aplication.Mapping
     {
         public MappingProfile() 
         {
-            CreateMap<DireccionDTO, Direccion>();
+            CreateMap<DireccionDTOs, Direccion>().ReverseMap();
 
-            CreateMap<Pedido, PedidoDTOs>().ReverseMap();
+            CreateMap<PedidoDTOs, Pedido>();
 
-            CreateMap<ItemPedido, ItemDTO>().ReverseMap();
+            CreateMap<ItemPedidoDTO, ItemPedido>();
 
-            CreateMap<Entrega, EntregaDTOs>().ReverseMap();
+            CreateMap<EntregaDTOs, Entrega>();
         }
-        
     }
 }
