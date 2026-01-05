@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Domain.Interfaces;
 using Infraestructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -10,39 +11,38 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Repositories
 {
-    public class PedidoRepositorio:IPedido
+    public class PedidoRepositorio : GenericRepositorio<Pedido>, IPedido
     {
-        private readonly AppDbContexts _context;
+        public PedidoRepositorio(AppDbContexts Context) : base(Context) { }
 
-        public PedidoRepositorio(AppDbContexts context)
+        public async Task<IEnumerable<Pedido>> GetPedidosPendientesAsync()
         {
-            _context = context;
+            return await _context.Pedidos
+                                 .Include(p => p.Detalles) // Traer hamburguesas/productos
+                                 .Include(p => p.Comercio) // Traer datos del local
+                                 .Where(p => p.Estado == EstadoPedido.Pendiente && p.Activo)
+                                 .OrderBy(p => p.FechaCreacion)
+                                 .ToListAsync();
         }
 
-        public Task Actualizar(Pedido pedido)
+        public async Task<IEnumerable<Pedido>> GetPedidosPorClienteAsync(string telefonoCliente)
         {
-            throw new NotImplementedException();
+            return await _context.Pedidos
+                                 .Include(p => p.Detalles)
+                                 .Where(p => p.TelefonoCliente == telefonoCliente)
+                                 .OrderByDescending(p => p.FechaCreacion)
+                                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Pedido>> All()
+        public async Task<Pedido?> GetPedidoEnCursoPorRepartidorAsync(int repartidorId)
         {
-            return await _context.pedidos.ToListAsync();
-        }
-
-        public async Task Crear(Pedido pedido)
-        {
-            _context.pedidos.Add(pedido);
-            await _context.SaveChangesAsync();
-        }
-
-        public Task<Pedido> ObtenerPorId(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Pedido>> ObtenerTodos()
-        {
-            throw new NotImplementedException();
+            // Buscamos si el repartidor tiene algo 'EnCamino' o 'Asignado'
+            return await _context.Pedidos
+                                .Include(p => p.Detalles)
+                                .FirstOrDefaultAsync(p =>
+                                    p.IdRepartidor == repartidorId &&
+                                    (p.Estado == EstadoPedido.EnCamino || p.Estado == EstadoPedido.Asignado)
+                                );
         }
     }
 }

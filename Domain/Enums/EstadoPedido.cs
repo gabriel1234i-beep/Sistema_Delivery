@@ -9,10 +9,9 @@ namespace Domain.Enums
     public enum EstadoPedido
     {
         Pendiente = 1,
-        Confirmado = 2,
-        EnPreparacion = 3,
-        ListoParaRecoger = 4,
-        Entregado = 5,
+        Asignado = 2,
+        EnCamino = 3,
+        Entrergado = 4,
         Cancelado = 0
     }
 }

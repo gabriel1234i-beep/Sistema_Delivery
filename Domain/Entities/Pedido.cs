@@ -1,6 +1,5 @@
 ﻿using Domain.Common;
 using Domain.Enums;
-using Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +10,35 @@ namespace Domain.Entities
 {
     public class Pedido : BaseEntity
     {
-        public Guid IdCliente { get; private set; }
-        public Guid IdComercio { get; private set; }
-        public List<ItemPedido> Items { get; private set; } = new();
-        public decimal PagoTotal { get; private set; }
-        public Direccion DireccionEntrega { get; private set; }
-        public EstadoPedido Estado { get; private set; }
-        public Guid? IdRepartidor { get; private set; }
+        public string NombreCliente { get; set; } = string.Empty;
+        public string TelefonoCliente { get; set; } = string.Empty;
 
-        //private Pedido() { }
+        //Tipo de servicio (compra o envio)
 
-        public Pedido(Guid Idcliente, Guid Idcomercio, Direccion entrega)
-        {
-            IdCliente = Idcliente;
-            IdComercio = Idcomercio;
-            DireccionEntrega = entrega;
-            Estado = EstadoPedido.Pendiente;
-        }
+        public TipoServicio TipoServicio {  get; set; }
+        public EstadoPedido Estado { get; set; }
 
-        public void AgregarItem(string producto, int cantidad, decimal precio)
-        {
-            Items.Add(new ItemPedido(producto, cantidad, precio));
-            PagoTotal = Items.Sum(x => x.SubTotal);
-        }
+        // Logica de direcciones
+
+        public Ubicacion? UbicacionOrigen {  get; set; }
+        public Ubicacion? UbicacionDestino { get; set; }
+
+        //Datos de Pagos
+        public decimal CostoEnvio { get; set; }
+        public decimal TotalProductos { get; set; }
+        public decimal Total => CostoEnvio + TotalProductos;
+
+        //Relaciones
+        //repartidor
+        public int? IdRepartidor { get; set; }
+        public RepartidorRef? Repartidor { get; set; }
+
+        //comercio
+        public int? IdComercio { get; set; }
+        public ComercioRef? Comercio {  get; set; }
+        //descripcion del paquete si es envio
+        public string DescripcionPaquete { get; set; } = string.Empty;
+        //Detalles (Solo si es compra)
+        public ICollection<DetallePedido>? Detalles { get; set; }
     }
 }

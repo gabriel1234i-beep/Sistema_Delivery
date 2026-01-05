@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IPedido
+    public interface IPedido : IGeneric<Pedido>
     {
-        Task<IEnumerable<IPedido>> All();
-        Task<Pedido> ObtenerPorId(Guid id);
-        Task<List<Pedido>> ObtenerTodos();
-        Task Crear(Pedido pedido);
-        Task Guardar(Pedido pedido);
-        Task Actualizar(Pedido pedido);
+        //obtener pedidos que aun no tienen repartidor (estado = Pendientes)
+        Task<IEnumerable<Pedido>> GetPedidosPendientesAsync();
+
+        //obtener historial de pedidos de un cliente
+        Task<IEnumerable<Pedido>> GetPedidosPorClienteAsync(string telefonoCliente);
+
+        //obtener el pedido actual que esta llevando un repartidor (estado = EnCamino)
+        Task<Pedido?> GetPedidoEnCursoPorRepartidorAsync(int repartidorId);
     }
 }

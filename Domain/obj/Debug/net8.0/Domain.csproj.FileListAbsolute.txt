@@ -1,0 +1,13 @@
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\bin\Debug\net8.0\Domain.deps.json
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\bin\Debug\net8.0\Domain.dll
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\bin\Debug\net8.0\Domain.pdb
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\Domain.dll
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\refint\Domain.dll
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\Domain.pdb
+E:\UPDS\MDG\MDG_3\Delivery\SistemaDelivery\Domain\obj\Debug\net8.0\ref\Domain.dll
